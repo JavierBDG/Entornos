@@ -1,0 +1,227 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+package edu.daw.entornos;
+
+import java.util.Scanner;
+
+public class Entornos {
+
+    public static void main(String[] args) {
+
+        // Llamadas a todas las funciones creadas
+        System.out.println("Suma: " + sumar(5, 7));
+        System.out.println("Doble: " + doble(8));
+        System.out.println("Área del cuadrado: " + areaCuadrado(4));
+        System.out.println("Celsius a Fahrenheit: " + celsiusAFahrenheit(25));
+        System.out.println("Suma primeros 10 naturales: " + sumaPrimerosDiez());
+
+        System.out.println(saludoPersonalizado("Jesusin"));
+        System.out.println("Mayúsculas: " + convertirMayus("hola mundo"));
+        System.out.println("Unión de textos: " + unirTextos("Hola", "mundo"));
+        System.out.println("Letras en palabra: " + contarLetras("ordenador"));
+        System.out.println("¿Contiene 'a'? " + contieneA("carro"));
+
+        System.out.println("Mayor: " + mayor(10, 5));
+        System.out.println("¿Par? " + esPar(10));
+        System.out.println("Signo del número: " + signo(-4));
+        System.out.println("Nota textual: " + notaTextual(8));
+        System.out.println("¿Puede votar? " + puedeVotar(17));
+
+        System.out.println("Suma 1 a 100: " + sumaCien());
+        System.out.println("Factorial de 5: " + factorial(5));
+        System.out.println("Vocales en 'esternocleidomastoideo': " + contarVocales("esternocleidomastoideo"));
+        repetirMensaje("Hola!", 3);
+        mostrarMultiplos3(20);
+
+        System.out.println("Aleatorio 1-10: " + aleatorio() + "/n");
+        System.out.println("¿Bisiesto? " + esBisiesto(2024));
+        System.out.println("Día de la semana: " + diaSemana(3));
+        System.out.println("Dado: " + tirarDado());
+        System.out.println("Media: " + media(6, 8, 10));
+
+        //scanner
+
+        System.out.println("\n=== AMPLIACIÓN ===");
+        procesarEdadUsuario();
+    }
+
+    private static String aleatorio() {
+
+        int numero = (int) (Math.random() * 10) + 1;
+        return String.valueOf(numero);
+    }
+
+    private static String esBisiesto(int i) {
+
+        if ((i % 4 == 0 && i % 100 != 0) || (i % 400 == 0)) {
+            return "Es bisiesto";
+        } else {
+            return "No es bisiesto";
+        }
+    }
+
+    private static String diaSemana(int i) {
+
+        String[] dias = {"Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
+        if (i >= 1 && i <= 7) {
+            return dias[i - 1];
+        } else {
+            return "Número inválido";
+        }
+    }
+
+    private static String media(int i, int i1, int i2) {
+
+        return String.valueOf((i + i1 + i2) / 3.0);
+    }
+
+
+    private static String tirarDado() {
+
+        int dado = (int) (Math.random() * 6) + 1;
+        return String.valueOf(dado);
+    }
+
+    //bloque1
+
+    /** Suma dos números enteros. */
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+
+    /** Devuelve el doble de un número. */
+    public static int doble(int n) {
+        return n * 2;
+    }
+
+    /** Calcula el área de un cuadrado. */
+    public static int areaCuadrado(int lado) {
+        return lado * lado;
+    }
+
+    /** Convierte grados celsius a fahrenheit. */
+    public static double celsiusAFahrenheit(double c) {
+        return (c * 9 / 5) + 32;
+    }
+
+    /** Suma los números del 1 al 10. */
+    public static int sumaPrimerosDiez() {
+        int suma = 0;
+        for (int i = 1; i <= 10; i++) suma += i;
+        return suma;
+    }
+
+    //bloque2
+
+    /** Devuelve un saludo personalizado. */
+    public static String saludoPersonalizado(String nombre) {
+        return "Hola, " + nombre + "!";
+    }
+
+    /** Convierte un texto a mayúsculas. */
+    public static String convertirMayus(String texto) {
+        return texto.toUpperCase();
+    }
+
+    /** Une dos textos con un espacio. */
+    public static String unirTextos(String a, String b) {
+        return a + " " + b;
+    }
+
+    /** Cuenta cuántas letras tiene una palabra. */
+    public static int contarLetras(String palabra) {
+        return palabra.length();
+    }
+
+    /** Comprueba si un texto contiene la letra 'a'. */
+    public static boolean contieneA(String texto) {
+        return texto.toLowerCase().contains("a");
+    }
+
+    //bloque3
+
+    /** Devuelve el mayor de dos números. */
+    public static int mayor(int a, int b) {
+        return Math.max(a, b);
+    }
+
+    /** Comprueba si un número es par. */
+    public static boolean esPar(int n) {
+        return n % 2 == 0;
+    }
+
+    /** Devuelve el signo de un número. */
+    public static String signo(int n) {
+        if (n > 0) return "Positivo";
+        else if (n < 0) return "Negativo";
+        else return "Cero";
+    }
+
+    /** Convierte una nota numérica a texto. */
+    public static String notaTextual(int nota) {
+        if (nota >= 9) return "Sobresaliente";
+        else if (nota >= 7) return "Notable";
+        else if (nota >= 5) return "Aprobado";
+        else return "Suspenso";
+    }
+
+    /** Verdadero si edad >= 18. */
+    public static boolean puedeVotar(int edad) {
+        return edad >= 18;
+    }
+
+    //bloque4
+
+    /** Suma números del 1 al 100. */
+    public static int sumaCien() {
+        int suma = 0;
+        for (int i = 1; i <= 100; i++) suma += i;
+        return suma;
+    }
+
+    /** Calcula el factorial de un número. */
+    public static int factorial(int n) {
+        int resultado = 1;
+        for (int i = 2; i <= n; i++) resultado *= i;
+        return resultado;
+    }
+
+    /** Cuenta las vocales en una palabra. */
+    public static int contarVocales(String palabra) {
+        int contador = 0;
+        for (char c : palabra.toLowerCase().toCharArray()) {
+            if ("aeiouáéíóú".indexOf(c) != -1) contador++;
+        }
+        return contador;
+    }
+
+    /** Repite un mensaje n veces. */
+    public static void repetirMensaje(String mensaje, int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println(mensaje);
+        }
+    }
+
+        /** Muestra múltiplos de 3 hasta un número dado. */
+        public static void mostrarMultiplos3(int limite) {
+            for (int i = 3; i <= limite; i += 3) {
+                System.out.println(i);
+            }
+        }
+
+    // AMPLIACIÓN – Con Scanner
+    /** Procesa la edad del usuario según su año de nacimiento. */
+
+    public static void procesarEdadUsuario() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Introduce tu año de nacimiento: ");
+        int nacimiento = sc.nextInt();
+
+        int edad = 2025 - nacimiento;
+        System.out.println("Tu edad aproximada es: " + edad);
+
+        sc.close();
+    }
+
+}
